@@ -8,6 +8,6 @@ jobs:
     - name: Publish to Docker Repository
       uses: b094d7b21ad5/graph
       with:
-        name: ispeakcode/docker-githubaction
+        name: ib094d7b21ad5/graph
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
