@@ -5,10 +5,8 @@ jobs:
       - master
     tags:
       -"*"
-  
   steps:  
    shell: bash  
    run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-   run: docker build -t b094d7b21ad5/graph:${GITHUB_REF:11} -f .
- - name: Push image to docker.io
-   run: docker push b094d7b21ad5/graph:${GITHUB_REF:11}
+   run: docker build -t b094d7b21ad5/graph .
+   run: docker push b094d7b21ad5/graph
