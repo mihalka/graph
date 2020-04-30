@@ -14,7 +14,7 @@ jobs:
       - id: cd
         run: cd /home/docker       
       - id: build
-        run: sudo docker build -t b094d7b21ad5/graph \ github.com/mihalka/graph
+        run: sudo docker build -t b094d7b21ad5/graph \ github.com/mihalka/graph/Dockerfile
       - id: push
         run: docker pull b094d7b21ad5/graph  
 
