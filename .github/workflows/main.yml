@@ -6,3 +6,22 @@ on:
 jobs:
   job_1:
     runs-on: ubuntu-latest  
+    steps:
+      - id: login
+        shell: bash
+        run: docker login -u b094d7b21ad5 -p DOCKER_PASSWORD
+      - id: build
+        shell: bash
+        run: docker build -t b094d7b21ad5/graph .
+      - id: push
+        run: docker pull b094d7b21ad5/graph
+
+
+          
+  
+   
+   
+        
+        
+      
+
