@@ -13,8 +13,9 @@ jobs:
         run: sudo mkdir -p /home/docker
       - id: cd
         run: cd /home/docker       
+      - uses: actions/checkout@master
       - id: build
-        run: sudo docker build -t b094d7b21ad5/graph \ github.com/mihalka/graph.git .
+        run: sudo docker build -t b094d7b21ad5/graph .
       - id: push
         run: docker pull b094d7b21ad5/graph  
 
