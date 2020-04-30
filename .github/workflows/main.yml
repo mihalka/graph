@@ -6,13 +6,12 @@ on:
     tags:
       -"*"
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: Publish to Docker Repository
-      uses: b094d7b21ad5/graph
-      with:
-        name: ib094d7b21ad5/graph
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      
+steps:
+ - name: Login to docker.io
+   run:  echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+ - uses: actions/checkout@master
+ - name: Build image
+   run: docker build -t b094d7b21ad5/graph:${GITHUB_REF:11} -f Dockerfile .
+ - name: Push image to docker.io
+   run: docker push b094d7b21ad5/graph:${GITHUB_REF:11}:  
