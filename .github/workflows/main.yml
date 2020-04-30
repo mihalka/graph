@@ -3,4 +3,6 @@ on:
   push:
     branches:
       - master
-runs-on: ubuntu-latest        
+jobs:
+  job_1:
+     runs-on: ubuntu-latest       
