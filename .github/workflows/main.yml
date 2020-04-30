@@ -10,7 +10,7 @@ jobs:
       - id: login
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - id: build
-        run: docker build -t b094d7b21ad5/graph:${GITHUB_REF:11} -f https://github.com/mihalka/graph.git#:master
+        run: docker build -t b094d7b21ad5/graph -f https://github.com/mihalka/graph.git#:master
       - id: push
         run: docker pull b094d7b21ad5/graph
 
