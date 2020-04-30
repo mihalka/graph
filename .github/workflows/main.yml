@@ -9,13 +9,9 @@ jobs:
     steps:
       - id: login
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - id: mkdir
-        run: sudo mkdir -p /home/docker
-      - id: cd
-        run: cd /home/docker       
       - uses: actions/checkout@master
       - id: build
         run: sudo docker build -t b094d7b21ad5/graph .
       - id: push
-        run: docker pull b094d7b21ad5/graph  
+        run: docker push b094d7b21ad5/graph  
 
